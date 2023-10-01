@@ -48,7 +48,7 @@ class MainJ:
                 piochetonext(2, s, p, nb_bots)
 
             p.recevoir(self.deck[index])
-            changementdetour(self.deck[index], s, nb_bots + 1)
+            changementdetour(self.deck[index], s, nb_bots)
             logging.debug(f"Carte supprimée: {self.deck[index]}")
             logging.debug(f"Main jouer avant suppression: {self.deck}")
             self.deck.remove(self.deck[index])
