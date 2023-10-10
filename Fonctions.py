@@ -28,9 +28,10 @@ class Sens:
         """
         self.tableau = []
         self.cursor = 0
+        self.nb_bots = nb_bots
         from MainJoueur import MainJ
         self.tableau.append(MainJ(p))
-        for i in range(0, nb_bots):
+        for i in range(0, self.nb_bots):
             from MainBots import MainBot
             self.tableau.append(MainBot(p, f"Bot n°{i + 1}"))
 
@@ -41,35 +42,42 @@ class Sens:
         """
         self.tableau = self.tableau[::-1]
 
-    def passerTour(self, nb_bots: int):
+    def passerTour(self):
         """
         Carte Pass utilisée, le joueur cursor + 2 est passé et comme une carte est jouée, on applique fin de tour.
         :return: le cursor mis à jour.
         """
         self.cursor += 2
-        self.cursor = self.cursor % (nb_bots + 1)
+        self.cursor = self.cursor % (self.nb_bots + 1)
 
-    def finTour(self, nb_bots: int):
+    def finTour(self):
         self.cursor += 1
-        self.cursor = self.cursor % (nb_bots + 1)
+        self.cursor = self.cursor % (self.nb_bots + 1)
 
+    def piochetonext(self, x: int, p: Pioche):
+        self.cursor += 1
+        p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
+        self.cursor += 1
 
-def changementdetour(c: Carte, s: Sens, nb_bots: int):
-    """
-    Fonction qui fait pointer sur le joueur qui doit jouer une fois une carte posée.
-    :param nb_bots: Nombre de bots présents.
-    :param c: Carte jouée par un bot ou l'utilisateur
-    :param s: Sens actuel du jeu
-    :return: Le curseur sur le joueur/Bots qui doit jouer maintenant.
-    """
-    if c is None:
-        s.finTour(nb_bots)
-    elif c.valeur == "↺":
-        s.reverse()
-    elif c.valeur == "⊝":
-        s.passerTour(nb_bots)
-    else:
-        s.finTour(nb_bots)
+    def changementdetour(self, c: Carte = None, p: Pioche = None):
+        """
+        Fonction qui fait pointer sur le joueur qui doit jouer une fois une carte posée.
+        :param p: Pioche
+        :param c: Carte jouée par un bot ou l'utilisateur
+        :return: Le curseur sur le joueur/Bots qui doit jouer maintenant.
+        """
+        if c is None:
+            self.finTour()
+        elif c.valeur == "↺":
+            self.reverse()
+        elif c.valeur == "+2":
+            self.piochetonext(2, p)
+        elif c.valeur == "+4":
+            self.piochetonext(4, p)
+        elif c.valeur == "⊝":
+            self.passerTour()
+        else:
+            self.finTour()
 
 
 def isAllow(courrante: Carte, carteJ: Carte) -> bool:
@@ -99,27 +107,27 @@ def testCarte(index: str, deckJ: list, p: Pioche):
             index = int(index) - 1
 
             if index + 1 > taille_deck:
-                E_supthan(index + 1, taille_deck)
-                tour(deckJ, p)
-                index = demande()
+                aff_E_supthan(index + 1, taille_deck)
+                aff_tour(deckJ, p)
+                index = aff_demande()
 
             elif index < 0:
-                indexInvalid(index + 1)
-                tour(deckJ, p)
-                index = demande()
+                aff_indexInvalid(index + 1)
+                aff_tour(deckJ, p)
+                index = aff_demande()
 
             else:
                 carteJ = deckJ[index]
                 if isAllow(p.courrante, carteJ):
                     return index
 
-                carteInvalid(carteJ)
-                tour(deckJ, p)
-                index = demande()
+                aff_carteInvalid(carteJ)
+                aff_tour(deckJ, p)
+                index = aff_demande()
         else:
-            typeInvalid(index)
-            tour(deckJ, p)
-            index = demande()
+            aff_typeInvalid(index)
+            aff_tour(deckJ, p)
+            index = aff_demande()
 
 
 def verifynbbots(nb_bots: str):
@@ -161,7 +169,7 @@ def piocher(deck: list, number: int, p: Pioche):
     p.cartesPiochees(number, deck)
 
 
-def choisirCouleurJ(c: Carte, deck: list):
+def choisirCouleurJ(c: Carte):
     ans_ok = True
     while ans_ok:
         reponse = input(f"Vous avez joué {c.valeur}{c.couleur}. Ecrivez la couleur que vous voulez jouer parmi (Rouge, "
@@ -188,9 +196,7 @@ def choisirCouleurB(c: Carte, deck: list):
                       "🟨": len([i for i in deck if i.couleur == "🟨"])}.items(), key=operator.itemgetter(1))[0])
 
 
-def piochetonext(number: int, s: Sens, p: Pioche, nb_bots: int):
-    s.cursor += 1
-    p.cartesPiochees(number, s.tableau[s.cursor % (nb_bots + 1)].deck)
+
 
 
 def trier(deck: list[Carte]):

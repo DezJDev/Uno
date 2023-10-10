@@ -75,13 +75,11 @@ class Pioche:
         :param x: Nombre de carte a piocher.
         :return: Pioche - les x cartes piochées.
         """
-        if x >= len(self.pioche):
+        if x > len(self.pioche):
             ecart = x - len(self.pioche)
-
-            if ecart > 0:
-                for nb_cartes in range(len(self.pioche)):
-                    deck.append(self.pioche[:1][0])
-                    self.pioche = self.pioche[1:]
+            for nb_cartes in range(len(self.pioche)):
+                deck.append(self.pioche[:1][0])
+                self.pioche = self.pioche[1:]
 
             self.pioche = self.tas[::-1]
             self.courrante = self.pioche[-1]
@@ -89,6 +87,14 @@ class Pioche:
             for nb_cartes in range(ecart):
                 deck.append(self.pioche[:1][0])
                 self.pioche = self.pioche[1:]
+
+        elif x == len(self.pioche):
+            for nb_cartes in range(len(self.pioche)):
+                deck.append(self.pioche[:1][0])
+                self.pioche = self.pioche[1:]
+
+            self.pioche = self.tas[::-1]
+            self.courrante = self.pioche[-1]
 
         else:
             for nb_cartes in range(x):

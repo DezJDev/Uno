@@ -1,6 +1,6 @@
 from Pioche import Pioche
-from Affichage import cartebot, botPioche, logdeckBot
-from Fonctions import looser, changementdetour, Sens, cartebot, piochetonext, choisirCouleurB, piocher
+from Affichage import aff_cartebot, aff_botPioche, aff_logdeckBot
+from Fonctions import Sens, choisirCouleurB, piocher
 
 import logging
 
@@ -22,31 +22,25 @@ class MainBot:
                 chaine += "🎴 "
         return chaine
 
-    def jouer(self, p: Pioche, bot_name: str, s: Sens, nb_bots: int):
-        islooser = False
-        logdeckBot(self.name, self.deck)
+    def jouer(self, p: Pioche, bot_name: str, s: Sens):
+        aff_logdeckBot(self.name, self.deck)
         for c in self.deck:
             if c.valeur == p.courrante.valeur or c.couleur == p.courrante.couleur or c.couleur == "⬛":
                 logging.debug(f"Le {bot_name} jouer la carte {c.valeur}{c.couleur}.")
-                p.recevoir(c)
                 if c.couleur == "⬛":
                     choisirCouleurB(c, self.deck)
-                    if c.valeur == "+4":
-                        piochetonext(4, s, p, nb_bots)
-                elif c.valeur == "+2":
-                    piochetonext(2, s, p, nb_bots)
 
-                changementdetour(c, s, nb_bots)
+                p.recevoir(c)
+                s.changementdetour(c, p)
                 self.deck.remove(c)
                 deckBotSTR = self.__repr__()
-                cartebot(deckBotSTR, c, bot_name)
-                islooser = looser(self.deck, bot_name)
+                aff_cartebot(deckBotSTR, c, bot_name)
                 break
 
         else:
             piocher(self.deck, 1, p)
             deckBotSTR = self.__repr__()
-            botPioche(self.name, deckBotSTR)
-            s.finTour(nb_bots)
+            aff_botPioche(self.name, deckBotSTR)
+            s.finTour()
 
-        return islooser
+        return len(self.deck) == 0
