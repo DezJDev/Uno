@@ -1,5 +1,7 @@
 import unittest
-from Fonctions import Sens, changementdetour
+from Fonctions import Sens
+from Pioche import Pioche
+from Carte import Carte
 
 
 class testSens(unittest.TestCase):
@@ -13,5 +15,18 @@ class testSens(unittest.TestCase):
 
         sens = Sens(3, pioche)
         self.assertEqual(sens.cursor, 0)
-        changementdetour(normal, sens, 3)
+        sens.changementdetour(normal)
         self.assertEqual(sens.cursor, 1)
+        sens.changementdetour(passerTour)
+        self.assertEqual(sens.cursor, 3)
+        sens.changementdetour(passerTour)
+        self.assertEqual(sens.cursor, 1)
+        sens.changementdetour(inverser)
+        self.assertEqual(sens.cursor, 1)
+        sens.changementdetour(piochable, pioche)
+        self.assertEqual(sens.cursor, 3)
+
+
+
+if __name__ == "__main__":
+    unittest.main()
