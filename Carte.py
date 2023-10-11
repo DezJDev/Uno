@@ -5,9 +5,10 @@ class Carte:
     8 cartes sont particulières puisqu'elles s'agient des Jokers Noirs. Elle sont créees directement dans la Pioche.
     """
 
-    def __init__(self, valeur: str, couleur: str):
+    def __init__(self, valeur: str, couleur: str, cost: int):
         self.valeur = valeur
         self.couleur = couleur
+        self.cost = cost
 
     def __repr__(self):
         return f"{self.valeur}{self.couleur}"

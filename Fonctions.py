@@ -29,6 +29,7 @@ class Sens:
         self.tableau = []
         self.cursor = 0
         self.nb_bots = nb_bots
+        self.isinversed = False
         from MainJoueur import MainJ
         self.tableau.append(MainJ(p))
         for i in range(0, self.nb_bots):
@@ -40,24 +41,47 @@ class Sens:
         Carte invert utilisée, le sens s'inverse et comme une carte est jouée, on applique fin de tour.
         :return: tableau est retourné, et le cursor mis à jour.
         """
-        self.tableau = self.tableau[::-1]
+        self.isinversed = not self.isinversed
+        self.finTour()
 
     def passerTour(self):
         """
         Carte Pass utilisée, le joueur cursor + 2 est passé et comme une carte est jouée, on applique fin de tour.
         :return: le cursor mis à jour.
         """
-        self.cursor += 2
+        if self.isinversed:
+            self.cursor -= 2
+            if self.cursor < 0:
+                self.cursor = self.cursor + self.nb_bots + 1
+        else:
+            self.cursor += 2
+
         self.cursor = self.cursor % (self.nb_bots + 1)
 
     def finTour(self):
-        self.cursor += 1
+        if self.isinversed:
+            self.cursor -= 1
+            if self.cursor < 0:
+                self.cursor = self.cursor + self.nb_bots + 1
+        else:
+            self.cursor += 1
+
         self.cursor = self.cursor % (self.nb_bots + 1)
 
     def piochetonext(self, x: int, p: Pioche):
-        self.cursor += 1
-        p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
-        self.cursor += 1
+        if self.isinversed:
+            self.cursor += 1
+            if self.cursor < 0:
+                self.cursor = self.cursor + self.nb_bots + 1
+            p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
+            self.cursor += 1
+            if self.cursor < 0:
+                self.cursor = self.cursor + self.nb_bots + 1
+
+        else:
+            self.cursor += 1
+            p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
+            self.cursor += 1
 
     def changementdetour(self, c: Carte = None, p: Pioche = None):
         """
@@ -203,20 +227,28 @@ def trier(deck: list[Carte]):
     # 52 itérations de boucle - (Complexité constante).
     deck2 = [cartes.__repr__() for cartes in deck]
     dico_compteur = {}
+
+    indice = 1
     for c in Couleur:
+        nombre = deck2.count(f"0{c.value}")
+        dico_compteur[Carte("0", c.value, 0)] = nombre
         for v in Valeur:
             nombre = deck2.count(f"{v.value}{c.value}")
-            dico_compteur[Carte(v.value, c.value)] = nombre
+            dico_compteur[Carte(v.value, c.value, indice)] = nombre
+            if indice < 10:
+                indice += 1
+        indice = 1
+
 
     JokersValues = ["⊕", "+4"]
     for values in JokersValues:
         nombre = deck2.count(f"{values}⬛")
-        dico_compteur[Carte(values, "⬛")] = nombre
+        dico_compteur[Carte(values, "⬛", 11)] = nombre
 
     deck_resultat = []
     for cles, valeurs in dico_compteur.items():
         if valeurs != 0:
             for i in range(valeurs):
-                deck_resultat.append(Carte(cles.valeur, cles.couleur))
+                deck_resultat.append(Carte(cles.valeur, cles.couleur, cles.cost))
 
     return deck_resultat

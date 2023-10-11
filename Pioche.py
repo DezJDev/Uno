@@ -25,20 +25,26 @@ class Pioche:
         Création de la Pioche mélangée.
         """
         self.pioche = []
-        # Ajout des 19 cartes par couleur.
+        indice = 1
+        index = 1
+        # Ajout des 96 cartes par couleur.
         for i in range(2):
             for c in Couleur:
                 for v in Valeur:
-                    self.pioche.append(Carte(v.value, c.value))
+                    self.pioche.append(Carte(v.value, c.value, indice))
+                    if indice < 10:
+                        indice += 1
+                    index += 1
+                indice = 1
 
-        # Ajout du 0.
+        # Ajout des 4 cartes 0.
         for c in Couleur:
-            self.pioche.append(Carte("0", c.value))
+            self.pioche.append(Carte("0", c.value, 0))
 
-        # Création des Jokers noirs.
+        # Création des 8 Jokers noirs.
         for i in range(4):
-            self.pioche.append(Carte("+4", "⬛"))
-            self.pioche.append(Carte("⊕", "⬛"))
+            self.pioche.append(Carte("+4", "⬛", 11))
+            self.pioche.append(Carte("⊕", "⬛", 11))
 
         shuffle(self.pioche)
 

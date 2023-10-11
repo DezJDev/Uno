@@ -18,12 +18,21 @@ class MainJ:
         self.deck = []
         p.cartesPiochees(7, self.deck)
 
+    def getScore(self):
+        resultat = 0
+        for cartes in self.deck:
+            resultat += cartes.cost
+        return resultat
+
     def jouer(self, p: Pioche, s: Sens) -> bool:
         """
         :param s:
         :param p:
         :return: Renvoie la variable iswinner : le joueur n'a plus de carte
         """
+        if not self.deck:
+            return True
+
         self.deck = trier(self.deck)
         aff_tour(self.deck, p)
         index = aff_demande()

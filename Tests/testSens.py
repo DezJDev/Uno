@@ -22,9 +22,9 @@ class testSens(unittest.TestCase):
         sens.changementdetour(passerTour)
         self.assertEqual(sens.cursor, 1)
         sens.changementdetour(inverser)
-        self.assertEqual(sens.cursor, 1)
+        self.assertEqual(sens.cursor, 0)
         sens.changementdetour(piochable, pioche)
-        self.assertEqual(sens.cursor, 3)
+        self.assertEqual(sens.cursor, 2)
 
 
 

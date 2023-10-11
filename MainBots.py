@@ -16,11 +16,17 @@ class MainBot:
     def __repr__(self):
         chaine = ""
         for i in range(len(self.deck)):
-            if i == len(self.deck)-1:
+            if i == len(self.deck) - 1:
                 chaine += "🎴"
             else:
                 chaine += "🎴 "
         return chaine
+
+    def getScore(self):
+        resultat = 0
+        for cartes in self.deck:
+            resultat += cartes.cost
+        return resultat
 
     def jouer(self, p: Pioche, bot_name: str, s: Sens):
         aff_logdeckBot(self.name, self.deck)
