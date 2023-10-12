@@ -29,19 +29,28 @@ class MainBot:
         return resultat
 
     def jouer(self, p: Pioche, bot_name: str, s: Sens):
+        if not self.deck:
+            return True
+
         aff_logdeckBot(self.name, self.deck)
+        cartesPossibles = []
+
         for c in self.deck:
             if c.valeur == p.courrante.valeur or c.couleur == p.courrante.couleur or c.couleur == "⬛":
-                logging.debug(f"Le {bot_name} jouer la carte {c.valeur}{c.couleur}.")
-                if c.couleur == "⬛":
-                    choisirCouleurB(c, self.deck)
+                cartesPossibles.append(c)
 
-                p.recevoir(c)
-                s.changementdetour(c, p)
-                self.deck.remove(c)
-                deckBotSTR = self.__repr__()
-                aff_cartebot(deckBotSTR, c, bot_name)
-                break
+        if cartesPossibles:
+            i = 0
+            cartechoisie = max(cartesPossibles, key=lambda carte: carte.cost)
+            logging.debug(f"Le {bot_name} jouer la carte {cartechoisie.valeur}{cartechoisie.couleur}.")
+            if cartechoisie.couleur == "⬛":
+                choisirCouleurB(cartechoisie, self.deck)
+
+            p.recevoir(cartechoisie)
+            s.changementdetour(cartechoisie, p)
+            self.deck.remove(cartechoisie)
+            deckBotSTR = self.__repr__()
+            aff_cartebot(deckBotSTR, cartechoisie, bot_name)
 
         else:
             piocher(self.deck, 1, p)

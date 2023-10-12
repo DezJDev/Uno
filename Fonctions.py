@@ -175,20 +175,6 @@ def verifynbbots(nb_bots: str):
     return nombre
 
 
-def winner(deck: list):
-    if len(deck) == 0:
-        gagnant()
-        return True
-    return False
-
-
-def looser(deck: list, bot_name: str):
-    if len(deck) == 0:
-        perdant(bot_name)
-        return True
-    return False
-
-
 def piocher(deck: list, number: int, p: Pioche):
     p.cartesPiochees(number, deck)
 
@@ -213,7 +199,6 @@ def choisirCouleurJ(c: Carte):
 
 
 def choisirCouleurB(c: Carte, deck: list):
-    i: Carte
     c.setCouleur(max({"🟥": len([i for i in deck if i.couleur == "🟥"]),
                       "🟦": len([i for i in deck if i.couleur == "🟦"]),
                       "🟩": len([i for i in deck if i.couleur == "🟩"]),
