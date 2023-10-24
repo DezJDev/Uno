@@ -8,10 +8,10 @@ class testSens(unittest.TestCase):
 
     def test_sensAfterCard(self):
         pioche = Pioche()
-        normal = Carte("5", "🟦")
-        piochable = Carte("+2", "🟥")
-        passerTour = Carte("⊝", "🟨")
-        inverser = Carte("↺", "🟩")
+        normal = Carte("5", "🟦", 5)
+        piochable = Carte("+2", "🟥", 10)
+        passerTour = Carte("⊝", "🟨", 10)
+        inverser = Carte("↺", "🟩", 10)
 
         sens = Sens(3, pioche)
         self.assertEqual(sens.cursor, 0)

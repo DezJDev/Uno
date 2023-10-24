@@ -47,19 +47,23 @@ class testPioche(unittest.TestCase):
     def test_cardInGame(self):
         pioche = Pioche()
         tasDecartes = []
-        values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "+4", "⊝", "↺", "⊕"]
+        values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "+4", "⊝", "↺", "⊕"]
         colors = ["🟥", "🟦", "🟩", "🟨"]
+        indice = 1
         for i in range(2):
             for c in colors:
                 for v in values:
-                    tasDecartes.append(Carte(v, c))
+                    tasDecartes.append(Carte(v, c, indice))
+                    if indice < 10:
+                        indice += 1
+                indice = 1
 
         for c in colors:
-            tasDecartes.append(Carte("0", c))
+            tasDecartes.append(Carte("0", c, 0))
 
         for i in range(4):
-            tasDecartes.append(Carte("+4", "⬛"))
-            tasDecartes.append(Carte("⊕", "⬛"))
+            tasDecartes.append(Carte("+4", "⬛", 11))
+            tasDecartes.append(Carte("⊕", "⬛", 11))
 
         pioche.pioche.extend(pioche.tas)
         tasDecartes, pioche.pioche = trier(tasDecartes), trier(pioche.pioche)
