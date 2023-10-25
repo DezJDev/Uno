@@ -167,11 +167,11 @@ def verifynbbots(nb_bots: str):
             if 4 >= nombre >= 1:
                 verrouiller = False
             else:
-                toobots()
-                nb_bots = demandebots()
+                aff_toobots()
+                nb_bots = aff_demandebots()
         else:
-            invalidSyntax()
-            nb_bots = demandebots()
+            aff_invalidSyntax()
+            nb_bots = aff_demandebots()
     return nombre
 
 
