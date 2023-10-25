@@ -70,18 +70,19 @@ class Sens:
 
     def piochetonext(self, x: int, p: Pioche):
         if self.isinversed:
-            self.cursor += 1
+            self.cursor -= 1
             if self.cursor < 0:
                 self.cursor = self.cursor + self.nb_bots + 1
             p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
-            self.cursor += 1
+            self.cursor -= 1
             if self.cursor < 0:
                 self.cursor = self.cursor + self.nb_bots + 1
-
         else:
             self.cursor += 1
             p.cartesPiochees(x, self.tableau[self.cursor % (self.nb_bots + 1)].deck)
             self.cursor += 1
+
+        self.cursor = self.cursor % (self.nb_bots + 1)
 
     def changementdetour(self, c: Carte = None, p: Pioche = None):
         """
