@@ -110,15 +110,11 @@ This functioning is implement in main.py
 
 ```py
 while not iswinner:
-logging.debug(f"Voici le cursor: {sens.cursor}.")
 if type(sens.tableau[sens.cursor % (nb_bots + 1)]).__name__ == "MainJ":
-  logging.debug(f"C'est au Joueur de jouer.")
   iswinner = sens.tableau[sens.cursor % (nb_bots + 1)].jouer(pioche, sens)
   if iswinner:
   aff_gagnant()
 else:
-  logging.debug(f"C'est au Bot n°{sens.cursor % (nb_bots + 1)} de jouer.")
-  logging.debug(f"Voici la taille du sens.tableau = {len(sens.tableau)}.")
   name = sens.tableau[sens.cursor % (nb_bots + 1)].name
   iswinner = sens.tableau[sens.cursor % (nb_bots + 1)].jouer(pioche, f"{sens.tableau[sens.cursor % (nb_bots + 1)].name}", sens)
   if iswinner:
