@@ -47,6 +47,8 @@ With **Affichage.py** we shows at player turn:
 - Current Card
 - Hand's player each card is indexed.
 - A question that asks the player his moves for his turn.
+
+
 ![playerview](https://github.com/DezJDev/Uno/assets/144434644/5a4abe55-2dd8-489c-adf4-13e5ac1c10d3)
 
 
