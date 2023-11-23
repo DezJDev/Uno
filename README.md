@@ -87,7 +87,7 @@ When a card that impacts the sense of the is played, we apply the methods corres
 
 | Value of special card | method corresponding | resultat on the array |
 |:----------------------|:---------------------|:----------------------|
-|           +2          |                      |                       |
+|          <center> +2</center>          |                      |                       |
 |           +4          |                      |                       |
 |           ↺           |                      |                       |
 |           +2          |                      |                       |
