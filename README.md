@@ -18,13 +18,13 @@ Now we're going to see how spade works.
 
 ### Pioche.py
 The spade is constitute by 108 cards:
-- 19 blue cards, numbered from 0 to 9 (2 for each number except for 0).
-- 19 red cards, numbered from 0 to 9 (2 for each number except for 0).
-- 19 yellow cards, numbered from 0 to 9 (2 for each number except for 0).
-- 19 green cards, numbered from 0 to 9 (2 for each number except for 0).
++ 19 blue cards, numbered from 0 to 9 (2 for each number except for 0).
++ 19 red cards, numbered from 0 to 9 (2 for each number except for 0).
++ 19 yellow cards, numbered from 0 to 9 (2 for each number except for 0).
++ 19 green cards, numbered from 0 to 9 (2 for each number except for 0).
 
-- 8 “+2” cards, (2 for each color).
-- 8 “Reverse direction” cards, (2 for each color).
-- 8 “Skip your turn” cards, (2 for each color).
-- 4 “SwitchColor” cards.
++ 8 “+2” cards, (2 for each color).
++ 8 “Reverse direction” cards, (2 for each color).
++ 8 “Skip your turn” cards, (2 for each color).
++ 4 “SwitchColor” cards.
 - 4 “+4” cards.
