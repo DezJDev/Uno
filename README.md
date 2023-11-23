@@ -86,6 +86,7 @@ We declare an array where we put our player & bots inside.
 When a card that impacts the sense of the is played, we apply the methods corresponding of the card.
 
 __Exemple of the array :__ **[MainJoueur, MainBot("Bot n°1"), MainBot("Bot n°2"), MainBot("Bot n°3")]**
+
 __Retranscription:__ **[Player, Bot n°1, Bot n°2, Bot n°3]**
 __Number of cards by character :__ **[7, 7, 7, 7]**
 
