@@ -107,6 +107,7 @@ else:
 ```
 
 This loop keeps the game running until a winner is declared. When a winner is determined, we display the rankings. For each character's deck, we calculate the total score by summing the scores of all the cards.
+
 __Here's an example of a ranking after a game:__
 
 ![ranking](https://github.com/DezJDev/Uno/assets/144434644/ec5f1b42-63c7-4be1-ab2b-7720f6d69139)
