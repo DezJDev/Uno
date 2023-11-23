@@ -1,6 +1,6 @@
 # Uno
 This is my first personal project. After I've completed the first step Docstring's formation, I decide to implement a Uno with Python to practice what I've learned.
-In this readme i will explain you how it works, where are my difficulties and how can I improve this project in the futur.\n
+In this readme i will explain you how it works, where are my difficulties and how can I improve this project in the futur.
 Let's start our journey with how I've created a card.
 
 ### Card.py
@@ -15,7 +15,7 @@ During game, we could set a joker's color. For that, we can use setCouleur(coule
 At a moment we wanted to know when a card is a joker. So we will is isJoker() a boolean methods that returns true or false if the card is a joker or no.
 That's all for card.py
 
-Now we're going to see how spade works.
+***********Now we're going to see how spade works.********************
 
 ### Pioche.py
 The spade is constitute by 108 cards, a discard pile and a current card.
@@ -51,4 +51,5 @@ With **Affichage.py** we shows at player turn:
 
 ![playerview](https://github.com/DezJDev/Uno/assets/144434644/5a4abe55-2dd8-489c-adf4-13e5ac1c10d3)
 
-
+He can decides to choose between 1 to N corresponding to his cards.
+If he chooses a value outside 
