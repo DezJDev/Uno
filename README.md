@@ -88,6 +88,7 @@ When a card that impacts the sense of the is played, we apply the methods corres
 __Exemple of the array :__ **[MainJoueur, MainBot("Bot n°1"), MainBot("Bot n°2"), MainBot("Bot n°3")]**
 
 __Retranscription:__ **[Player, Bot n°1, Bot n°2, Bot n°3]**
+
 __Number of cards by character :__ **[7, 7, 7, 7]**
 
 Conventionally, it is asserted that the player is the one who plays the example cards.
