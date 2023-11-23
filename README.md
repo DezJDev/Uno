@@ -15,7 +15,7 @@ During game, we could set a joker's color. For that, we can use setCouleur(coule
 At a moment we wanted to know when a card is a joker. So we will is isJoker() a boolean methods that returns true or false if the card is a joker or no.
 That's all for card.py
 
-**********Now we're going to see how spade works.**********
+*Now we're going to see how spade works.*
 
 ### Pioche.py
 The spade is constitute by 108 cards, a discard pile and a current card.
