@@ -5,8 +5,8 @@ So let's start our journey with how I've created a card.
 
 ### Card.py
 Uno is a card game. To begin, I needed to create all cards in the game. 
-  -> There are five colors [🟥, 🟨, 🟩, 🟦, ⬛].
-  -> There are 15 values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ⊝, ↺, +2, +4, ⊕]
+  1. There are five colors [🟥, 🟨, 🟩, 🟦, ⬛].
+  2. There are 15 values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ⊝, ↺, +2, +4, ⊕]
 
 We find colors into "Couleur.py" except black color.
 We find values into "Valeurs.py" except joker's values.
