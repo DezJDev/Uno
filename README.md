@@ -7,7 +7,7 @@ Uno is a card game, and to commence, I had to generate all the cards for the gam
 * There are 15 values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ⊝, ↺, +2, +4, ⊕].
 * Each card is assigned a value.
 
-* 
+
 Colors are defined in **Couleur.py**, excluding the black color.
 Values are defined in **Valeurs.py**, excluding the values for jokers.
 During gameplay, it's possible to designate a color for a joker using the setCouleur(couleur) method on a card.
