@@ -39,9 +39,14 @@ Now, when a player draws a card, he draws the first card played in the old disca
 The current card changes each time a card is play.
 It tooks coulor and value of the last card play.
 That's all for pioche.py
-
 Now we're going to see how a player and a bot plays.
 
 ### MainJoueur.py & MainBots.py
 At the beginning of the game, the player and each bot draws 7 cards.
+With **Affichage.py** we shows at player turn:
+- Current Card
+- Hand's player each card is indexed.
+- A question that asks the player his moves for his turn.
+![playerview](https://github.com/DezJDev/Uno/assets/144434644/5a4abe55-2dd8-489c-adf4-13e5ac1c10d3)
+
 
