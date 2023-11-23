@@ -100,6 +100,14 @@ It's the first character inside the array to play, after it's the second, then i
 |<p align="center">⊝</p>                        |<p align="center">Sens.passerTour() + Sens.finTour()</p>       |<p align="center">__Exemple of the array:__ [Bot n°2, Bot n°3, Player, Bot n°1]</p> |
 |<p align="center">⊕</p>                        |<p align="center">Carte.setCouleur() + Sens.finTour()</p>      |<p align="center">__Exemple of the array:__ [Bot n°1, Bot n°2, Bot n°3, Player]</p> |
 
+That's all for Sens.py
+
+Now we're going to see how the program don't stop before that a winner is declare.
+
+This functioning is implement in main.py
+### Main.py
+
+
 ```py
 while not iswinner:
 logging.debug(f"Voici le cursor: {sens.cursor}.")
