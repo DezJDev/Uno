@@ -41,7 +41,7 @@ Utilizing **Affichage.py**, we display the following during the player's turn:
 * The current card
 * The player's hand, with each card indexed
 * A prompt requesting the player to input their moves for the turn.
-* 
+
 Here's an example of the display during a player's turn:
 
 ![playerview](https://github.com/DezJDev/Uno/assets/144434644/5a4abe55-2dd8-489c-adf4-13e5ac1c10d3)
