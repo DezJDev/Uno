@@ -101,9 +101,7 @@ It's the first character inside the array to play, after it's the second, then i
 |<p align="center">⊕</p>                        |<p align="center">Carte.setCouleur() + Sens.finTour()</p>      |<p align="center">__Exemple of the array:__ [Bot n°1, Bot n°2, Bot n°3, Player]</p> |
 
 That's all for Sens.py
-
 Now we're going to see how the program don't stop before that a winner is declare.
-
 This functioning is implement in main.py
 ### Main.py
 
@@ -118,5 +116,25 @@ else:
   name = sens.tableau[sens.cursor % (nb_bots + 1)].name
   iswinner = sens.tableau[sens.cursor % (nb_bots + 1)].jouer(pioche, f"{sens.tableau[sens.cursor % (nb_bots + 1)].name}", sens)
   if iswinner:
-     aff_perdant(name)
+    aff_perdant(name)
 ```
+
+This loop keeps the game going until a winner is declared.
+When a winner is declared, we show the ranking.
+For each character's deck, we sum all card's score.
+
+__Beside an exemple of a ranking after a game:__
+
+![ranking](https://github.com/DezJDev/Uno/assets/144434644/ec5f1b42-63c7-4be1-ab2b-7720f6d69139)
+
+__The futur of this project:__
+I'll trying: 
+* To make the coverage of my unit tests.
+* To make my project executable.
+* Enable multiplayer on a single machine.
+* Enable multiplayer online with a server.
+* Developing a designed application for the project.
+
+
+That's conclude this readMe.
+Thanks you for reading, and enjoy.
