@@ -7,6 +7,7 @@ Let's start our journey with how I've created a card.
 Uno is a card game. To begin, I needed to create all cards in the game. 
 * There are five colors [🟥, 🟨, 🟩, 🟦, ⬛]. 
 * There are 15 values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ⊝, ↺, +2, +4, ⊕].
+* Each card has a value.
 
 We find colors into "Couleur.py" except black color.
 We find values into "Valeurs.py" except joker's values.
@@ -17,14 +18,30 @@ That's all for card.py
 Now we're going to see how spade works.
 
 ### Pioche.py
-The spade is constitute by 108 cards:
+The spade is constitute by 108 cards, a discard pile and a current card.
 * 19 blue cards, numbered from 0 to 9 (2 for each number except for 0).
 - 19 red cards, numbered from 0 to 9 (2 for each number except for 0).
 + 19 yellow cards, numbered from 0 to 9 (2 for each number except for 0).
 * 19 green cards, numbered from 0 to 9 (2 for each number except for 0).
 
-- 8 “+2” cards, (2 for each color).
-+ 8 “Reverse direction” cards, (2 for each color).
-* 8 “Skip your turn” cards, (2 for each color).
-- 4 “SwitchColor” cards.
-+ 4 “+4” cards.
+- 8 "+2" cards, (2 for each color).
++ 8 "Reverse direction" cards, (2 for each color).
+* 8 "Skip your turn" cards, (2 for each color).
+- 4 "SwitchColor" cards.
++ 4 "+4" cards.
+
+To implement the discard pile, we will use a FIFO structure.
+To construct it, we draws in the spade while the drawed card isn't a joker. 
+When a player plays a card, he puts it's card above the discard pile.
+At a moment, the spade will be empty. So we reverse the discard pile to construct a new spade.
+Now, when a player draws a card, he draws the first card played in the old discard pile.
+
+The current card changes each time a card is play.
+It tooks coulor and value of the last card play.
+That's all for pioche.py
+
+Now we're going to see how a player and a bot plays.
+
+### MainJoueur.py & MainBots.py
+At the beginning of the game, the player and each bot draws 7 cards.
+
