@@ -57,7 +57,7 @@ If he chooses a value that not correspond with the current card, that's return a
 If he doesn't have any card corresponding with current card, he writes "p" to draw a card an pass his turn.
 
 So we have two ways.
-The user plays a correct card. We apply the card's effect to the next bot. We add the card at the discard pile and change the current card with player's card value and color. We remove the card in his deck. We pass to the next bot's turn.
-The user draws a card. We take the card above the spade. We remove it from the spade. We add this card inside user's deck. We pass to the next bot's turn.
+* The user plays a correct card. We apply the card's effect to the next bot. We add the card at the discard pile and change the current card with player's card value and color. We remove the card in his deck. We pass to the next bot's turn.
+* The user draws a card. We take the card above the spade. We remove it from the spade. We add this card inside user's deck. We pass to the next bot's turn.
 
 That's all for MainJoueur.py 
