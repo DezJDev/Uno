@@ -113,7 +113,7 @@ while not iswinner:
 if type(sens.tableau[sens.cursor % (nb_bots + 1)]).__name__ == "MainJ":
   iswinner = sens.tableau[sens.cursor % (nb_bots + 1)].jouer(pioche, sens)
   if iswinner:
-  aff_gagnant()
+    aff_gagnant()
 else:
   name = sens.tableau[sens.cursor % (nb_bots + 1)].name
   iswinner = sens.tableau[sens.cursor % (nb_bots + 1)].jouer(pioche, f"{sens.tableau[sens.cursor % (nb_bots + 1)].name}", sens)
