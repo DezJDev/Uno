@@ -59,7 +59,8 @@ Using **Affichage.py**, we display the following at each bot's turn:
 * Bot's name.
 * Bot's deck (with card faces hidden).
 * Bot's played card.
-Here's an example of the display during a player's turn:
+  
+__Here's an example of the display during a player's turn:__
 
 
 ![BotExemple1](https://github.com/DezJDev/Uno/assets/144434644/750ae950-d2b7-40fa-8208-c1a4782e6854)
