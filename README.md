@@ -85,11 +85,11 @@ The class called "Sens" implements the sense of the game.
 We declare an array where we put our player & bots inside.
 When a card that impacts the sense of the is played, we apply the methods corresponding of the card.
 
-| Value of special card | method corresponding                     | resultat on the array |
-|:----------------------|:-----------------------------------------|:----------------------|
-|+2                     |Sens.piochetonext(2) + Sens.finTour()     |                       |
-|+4                     |Sens.piochetonext(4) + Carte.setCouleur() |                       |
+| Value of special card | <p align="center">methods corresponding</p>                     | resultat on the array |
+|:----------------------|:----------------------------------------- |:----------------------|
+|+2                     |Sens.piochetonext(2) + Sens.finTour()      |                       |
+|+4                     |Sens.piochetonext(4) + Carte.setCouleur()  |                       |
 |↺                      |Sens.reverse() + Sens.finTour()           |                       |
-|⊝                     |Sens.passerTour() + Sens.finTour()        |                       |
-|⊕                     |Carte.setCouleur() + Sens.finTour()       |                       |
+|⊝                     |Sens.passerTour() + Sens.finTour()         |                       |
+|⊕                     |Carte.setCouleur() + Sens.finTour()        |                       |
 
