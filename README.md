@@ -63,7 +63,7 @@ So we have two ways.
 That's all for MainJoueur.py
 Now we're going to see how a bot play.
 
-With **Affichage.py** we show at bot turns:
+With **Affichage.py** we show at bot's turns:
 - bot's name.
 - bot's deck (card face hidden).
 - bot's card played.
