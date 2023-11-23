@@ -3,7 +3,7 @@ This is my first personal project. After I've completed the first step Docstring
 In this readme i will explain you how it works, where are my difficulties and how can I improve this project in the futur.
 Let's start our journey with how I've created a card.
 
-### Card.py
+  ### Card.py
 Uno is a card game. To begin, I needed to create all cards in the game. 
 * There are five colors [🟥, 🟨, 🟩, 🟦, ⬛]. 
 * There are 15 values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ⊝, ↺, +2, +4, ⊕].
@@ -17,7 +17,7 @@ That's all for card.py
 
 *Now we're going to see how spade works.*
 
-### Pioche.py
+  ### Pioche.py
 The spade is constitute by 108 cards, a discard pile and a current card.
 * 19 blue cards, numbered from 0 to 9 (2 for each number except for 0).
 - 19 red cards, numbered from 0 to 9 (2 for each number except for 0).
@@ -41,7 +41,7 @@ It tooks coulor and value of the last card play.
 That's all for pioche.py
 Now we're going to see how a player and a bot plays.
 
-### MainJoueur.py & MainBots.py
+  ### MainJoueur.py & MainBots.py
 At the beginning of the game, the player and each bot draws 7 cards.
 With **Affichage.py** we show at player turn:
 - Current Card
@@ -80,4 +80,6 @@ That's all for MainBots.py
 Now we're going to see how does the sense system work in the game.
 
 ### Fonctions.py
-
+This file correspond of my functional work behind the appearance of the game.
+The class called "Sens" implements the sense of the game.
+We declare an array where we put our player & bots inside.
