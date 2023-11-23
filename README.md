@@ -43,7 +43,7 @@ Now we're going to see how a player and a bot plays.
 
 ### MainJoueur.py & MainBots.py
 At the beginning of the game, the player and each bot draws 7 cards.
-With **Affichage.py** we shows at player turn:
+With **Affichage.py** we show at player turn:
 - Current Card
 - Hand's player each card is indexed.
 - A question that asks the player his moves for his turn.
@@ -52,4 +52,12 @@ With **Affichage.py** we shows at player turn:
 ![playerview](https://github.com/DezJDev/Uno/assets/144434644/5a4abe55-2dd8-489c-adf4-13e5ac1c10d3)
 
 He can decides to choose between 1 to N corresponding to his cards.
-If he chooses a value outside 
+If he chooses a value outside this interval, that's return a message to the user and asks him again.
+If he chooses a value that not correspond with the current card, that's return a message to the user and asks him again.
+If he doesn't have any card corresponding with current card, he writes "p" to draw a card an pass his turn.
+
+So we have two ways.
+The user plays a correct card. We apply the card's effect to the next bot. We add the card at the discard pile and change the current card with player's card value and color. We remove the card in his deck. We pass to the next bot's turn.
+The user draws a card. We take the card above the spade. We remove it from the spade. We add this card inside user's deck. We pass to the next bot's turn.
+
+That's all for MainJoueur.py 
