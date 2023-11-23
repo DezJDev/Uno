@@ -100,7 +100,7 @@ It's the first character inside the array to play, after it's the second, then i
 |<p align="center">⊝</p>                        |<p align="center">Sens.passerTour() + Sens.finTour()</p>       |<p align="center">__Exemple of the array:__ [Bot n°2, Bot n°3, Player, Bot n°1]</p> |
 |<p align="center">⊕</p>                        |<p align="center">Carte.setCouleur() + Sens.finTour()</p>      |<p align="center">__Exemple of the array:__ [Bot n°1, Bot n°2, Bot n°3, Player]</p> |
 
-```js
+```py
 while not iswinner:
 logging.debug(f"Voici le cursor: {sens.cursor}.")
 if type(sens.tableau[sens.cursor % (nb_bots + 1)]).__name__ == "MainJ":
