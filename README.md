@@ -83,3 +83,13 @@ Now we're going to see how does the sense system work in the game.
 This file correspond of my functional work behind the appearance of the game.
 The class called "Sens" implements the sense of the game.
 We declare an array where we put our player & bots inside.
+When a card that impacts the sense of the is played, we apply the methods corresponding of the card.
+
+| Value of special card | method corresponding | resultat on the array |
+|:----------------------|:---------------------|:----------------------|
+|           +2          |                      |                       |
+|           +4          |                      |                       |
+|           ↺           |                      |                       |
+|           +2          |                      |                       |
+|           +2          |                      |                       |
+
