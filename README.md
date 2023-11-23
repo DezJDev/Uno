@@ -85,11 +85,20 @@ The class called "Sens" implements the sense of the game.
 We declare an array where we put our player & bots inside.
 When a card that impacts the sense of the is played, we apply the methods corresponding of the card.
 
-| <p align="center">Value of special card</p>  | <p align="center">methods corresponding</p>                     | <p align="center">resultat on the array</p>  |
-|:---------------------------------------------|:--------------------------------------------------------------- |:---------------------------------------------|
-|<p align="center">+2</p>                      |<p align="center">Sens.piochetonext(2) + Sens.finTour()</p>      |<p align="center"></p>|
-|<p align="center">+4</p>                      |<p align="center">Sens.piochetonext(4) + Carte.setCouleur()</p>  |<p align="center"></p>|
-|<p align="center">↺</p>                       |<p align="center">Sens.reverse() + Sens.finTour()</p>            |<p align="center"></p>|
-|<p align="center">⊝</p>                      |<p align="center">Sens.passerTour() + Sens.finTour()</p>         |<p align="center"></p>|
-|<p align="center">⊕</p>                      |<p align="center">Carte.setCouleur() + Sens.finTour()</p>        |<p align="center"></p>|
+__Exemple of the array :__ **[MainJoueur, MainBot("Bot n°1"), MainBot("Bot n°2"), MainBot("Bot n°3")]**
+__Retranscription:__ **[Player, Bot n°1, Bot n°2, Bot n°3]**
+__Number of cards by character :__ **[7, 7, 7, 7]**
+
+Conventionally, it is asserted that the player is the one who plays the example cards.
+It's the first character inside the array to play, after it's the second, then it's the third and finally it the fourth character to play.
+
+| <p align="center">**Value of special card**</p>| <p align="center">**methods corresponding**</p>               |<p align="center">**resultat on the array**</p>                                     |
+|:-----------------------------------------------|:--------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+|<p align="center">+2</p>                        |<p align="center">Sens.piochetonext(2) + Sens.finTour()</p>    |<p align="center">__Number of cards by character:__ [B2: 7, B3: 7, P: 7, B1: 9]</p> |
+|<p align="center">+4</p>                        |<p align="center">Sens.piochetonext(4) + Carte.setCouleur()</p>|<p align="center">__Number of cards by character:__ [B2: 7, B3: 7, P: 7, B1: 11]</p>|
+|<p align="center">↺</p>                         |<p align="center">Sens.reverse() + Sens.finTour()</p>          |<p align="center">__Exemple of the array:__ [Bot n°3, Bot n°2, Bot n°1, Player]</p> |
+|<p align="center">⊝</p>                        |<p align="center">Sens.passerTour() + Sens.finTour()</p>       |<p align="center">__Exemple of the array:__ [Bot n°2, Bot n°3, Player, Bot n°1]</p> |
+|<p align="center">⊕</p>                        |<p align="center">Carte.setCouleur() + Sens.finTour()</p>      |<p align="center">__Exemple of the array:__ [Bot n°1, Bot n°2, Bot n°3, Player]</p> |
+
+
 
