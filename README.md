@@ -62,10 +62,22 @@ So we have two ways.
 
 That's all for MainJoueur.py
 Now we're going to see how a bot play.
+
 With **Affichage.py** we show at bot turns:
+- bot's name.
 - bot's deck (card face hidden).
 - bot's card played.
 An exemple of a display of a player's turn:
 
 
 ![BotExemple1](https://github.com/DezJDev/Uno/assets/144434644/750ae950-d2b7-40fa-8208-c1a4782e6854)
+
+In this exemple, we have 3 bots. Each turn, we see which card a bot played and how many cards still a bot have yet.
+Each bot would play his card which have the most score and corresponding with the current card.
+If any card doesn't correspond with the current card, the bot draws. 
+
+That's all for MainBots.py
+Now we're going to see how does the sense system work in the game.
+
+### Fonctions.py
+
